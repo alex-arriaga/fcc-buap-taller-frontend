@@ -43,7 +43,7 @@ Que el alumno aprenda o incremente su conocimiento sobre herramientas profesiona
     * 4.3\. Importando archivos y directivas
 
 
-* 5\. Optimizando el flujo de desarrollo: Git/Githubt y Node Package Manager como base de nuestro trabajo.
+* 5\. Optimizando el flujo de desarrollo: Git/Github y Node Package Manager como base de nuestro trabajo.
     * 5.1\. ¿Qué es un controlador de versiones?
     * 5.2\. Comandos básicos
 
