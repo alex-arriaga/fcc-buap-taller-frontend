@@ -161,3 +161,6 @@ profile
 DerivedData
 *.hmap
 *.ipa
+
+# IDEA
+.idea
