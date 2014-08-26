@@ -11,7 +11,10 @@ var watch 	= require('gulp-watch');
 var uglify 	= require('gulp-uglify');
 var less 	= require('gulp-less');
 var minifyCSS = require('gulp-minify-css');
+var imagemin = require('gulp-imagemin');
+var pngcrush = require('imagemin-pngcrush');
 
+var baseDirDev = './dev/';
 var baseDirJs = './dev/js/';
 var baseDirCSS = './dev/css/';
 
@@ -19,7 +22,7 @@ var paths = {
 	dev 	: './dev/',
 	prod 	: './prod/',
 	scripts : [baseDirJs + 'jquery-1.11.1.js', baseDirJs + 'js/bootstrap.js'],
-	images 	: 'img/*.jpg',
+	images 	: [baseDirDev +'img/*.jpg', baseDirDev +'img/*.png'],
 	fonts	: 'fonts/*',
 	less 	: 'less/*.less',
 	css 	: [baseDirCSS + 'bootstrap.css', baseDirCSS + 'econtinua.css', baseDirCSS + 'econtinua-responsive.css', baseDirCSS + 'font-awesome.css']
@@ -64,7 +67,13 @@ var minifyCSSOptions = {
 // 4. Copy images
 	gulp.task('copy-static-resources', function() {
 		// console.log("Copy images from:" + (paths.dev+paths.images));
-		gulp.src(paths.dev + paths.images)
+		gulp.src(paths.images)
+			.pipe(imagemin({
+				progressive: true,
+				optimizationLevel: 6,
+				svgoPlugins: [{ removeViewBox: false }],
+            	use: [pngcrush({ reduce: true })]
+			}))
 			.pipe(gulp.dest(paths.prod + 'img'));
 
 		gulp.src(paths.dev+paths.fonts)
