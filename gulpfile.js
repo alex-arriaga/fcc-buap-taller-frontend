@@ -34,14 +34,14 @@ var paths = {
 var minifyCSSOptions = {
 	keepSpecialComments: 0,
 	keepBreaks: false,
-	debug: false
+	debug: true
 };
 
 // 1. Transform LESS file to CSS  (place CSS files into dev/css folder)
 	gulp.task('less', function() {
-		return gulp.src(paths.dev + paths.less)
-			.pipe(less())
-			.pipe(gulp.dest(paths.dev + 'css'));
+		return gulp.src(paths.dev + paths.less).pipe(watch(function(files){
+			return files.pipe(less()).pipe(minifyCSS(minifyCSSOptions)).pipe(gulp.dest(paths.dev + 'css'));
+		}));
 	});
 
 // 2. Compress CSS
@@ -83,17 +83,18 @@ var minifyCSSOptions = {
 
 
 // Watch files for fhanges
-/*
+
 gulp.task('watch', function() {
     //gulp.watch(paths.scripts, ['create-documentation']);
-    gulp.watch(paths.scripts, ['compress-js']);
+    //gulp.watch(paths.scripts, ['compress-js']);
+    gulp.watch(paths.dev + paths.less, ['less','compress-css']);
 });
-*/
+
 
 // Default gulp task to run
-gulp.task('default',['less', 'compress-css', 'compress-js', 'copy-static-resources']);
+gulp.task('default',['less', 'compress-css', 'compress-js', 'copy-static-resources', 'watch']);
 
-//gulp.start('default'); // Use with watch
+gulp.start('default'); // Use with watch
 
 
 
