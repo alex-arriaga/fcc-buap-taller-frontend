@@ -1,0 +1,121 @@
+/**
+* File: blueprint.less
+* Author: Alex Arriaga (@alex_arriaga_m) - http://www.alex-arriaga.com
+* Date: 21/Aug/2014
+*/
+
+/////////////////////////////////////////////////////////////////////////////
+// Tips: Compile automatically using Node Package Manager (NPM) + gulp.js
+/////////////////////////////////////////////////////////////////////////////
+
+/////////////////////////////////////////////////////////////////////////////
+// Importing external resources.
+// * variables 	- define variables used in this file
+// * mixins - define re-usable mixings
+/////////////////////////////////////////////////////////////////////////////
+@import "variables.less";
+@import "mixins.less";
+
+
+/////////////////////////////////////////////////////////////////////////////
+// Styles with tags.
+// General tags should not be overridden frequently.
+// Please place your LESS rules alphabetically
+/////////////////////////////////////////////////////////////////////////////
+a {
+	color: @blue;
+}
+
+article {
+	.read-more{
+		.awesome-button(#E87400,white,#E87400);
+	}
+
+	&.news{
+		margin-top: 1em;
+		margin-bottom: 1em;
+		border-bottom: 1px solid @light_gray;
+		padding-bottom: 1em;
+	}
+}
+
+body {
+	color: @dark_gray;
+}
+
+footer {
+	background-color: @blue;
+	border-bottom: 10px solid @orange;
+	color: white;
+	min-height: 100px;
+	text-align: center;
+	padding-top: 2em;
+}
+
+h1 {
+	color: @orange;
+	font-family: 'Ubuntu', sans-serif;
+}
+
+h2 {
+	color: @blue;
+	font-family: 'Ubuntu', sans-serif;
+}
+
+h3 {
+	margin-top: 0;
+}
+
+header {
+	margin: 1em 0;
+	min-height: 60px;
+
+	i{
+		font-size: 2em;
+		color: @blue;
+
+		&:hover{
+			color: @orange;
+		}
+	}
+
+	.social-bar{
+		margin-top: 1.5em;
+		text-align: right;
+	}
+}
+
+/////////////////////////////////////////////////////////////////////////////
+// Styles with classes.
+// Use classes as many times as possible, this is the best way.
+// Please place your LESS rules alphabetically
+/////////////////////////////////////////////////////////////////////////////
+.navbar-econtinua {
+	background-color: @blue;
+	border-radius: 0;
+	border-bottom: 4px solid @light_gray;
+
+	a{
+		color: white;
+		font-family: 'Oswald', sans-serif;
+	}
+
+	.icon-bar{
+		background-color: white;
+	}
+}
+
+.nav {
+	a {
+		&:hover,
+		&.active{
+			background-color: @dark_blue;
+		}
+	}
+}
+
+/////////////////////////////////////////////////////////////////////////////
+// Styles with IDs.
+// Don't use IDs for CSS unless you don't have another option
+// Please place your LESS rules alphabetically
+/////////////////////////////////////////////////////////////////////////////

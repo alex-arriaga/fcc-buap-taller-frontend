@@ -9,6 +9,8 @@
 
 
 
+# ----- Node.js development modules
+node_modules
 
 # ----- Operating Systems
 # OS X
@@ -161,3 +163,6 @@ profile
 DerivedData
 *.hmap
 *.ipa
+
+# IDEA
+.idea

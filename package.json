@@ -1,0 +1,30 @@
+{
+  "name": "econtinua",
+  "version": "1.0.0",
+  "description": "Un ejemplo completo con modernas herramientas para desarrollo frontend",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/alex-arriaga/fcc-buap-taller-frontend.git"
+  },
+  "author": "Alex Arriaga",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/alex-arriaga/fcc-buap-taller-frontend/issues"
+  },
+  "homepage": "https://github.com/alex-arriaga/fcc-buap-taller-frontend",
+  "devDependencies": {
+    "gulp": "^3.8.7",
+    "gulp-concat": "^2.3.4",
+    "gulp-imagemin": "^1.0.1",
+    "gulp-less": "^1.3.5",
+    "gulp-minify-css": "^0.3.7",
+    "gulp-rename": "^1.2.0",
+    "gulp-uglify": "^0.3.2",
+    "gulp-watch": "^0.6.9",
+    "imagemin-pngcrush": "^0.1.0"
+  }
+}
