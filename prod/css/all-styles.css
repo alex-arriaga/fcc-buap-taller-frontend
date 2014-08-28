@@ -6202,120 +6202,26 @@ button.close {
 }
 /*# sourceMappingURL=bootstrap.css.map */
 
-/**
-* File: blueprint.less
-* Author: Alex Arriaga (@alex_arriaga_m) - http://www.alex-arriaga.com
-* Date: 21/Aug/2014
-*/
-/**
-* File: variables.less
-* Author: Alex Arriaga (@alex_arriaga_m) - http://www.alex-arriaga.com
-* Date: 21/Aug/2014
-*/
-/**
-* File: mixins.less
-* Author: Alex Arriaga (@alex_arriaga_m) - http://www.alex-arriaga.com
-* Date: 25/Aug/2014
-*/
-a {
-  color: #2b4776;
-}
-article .read-more {
-  background: #e87400;
-  border-radius: 4px;
-  border: #e87400;
-  color: #ffffff;
-  padding: 0.5em;
-}
-article.news {
-  margin-top: 1em;
-  margin-bottom: 1em;
-  border-bottom: 1px solid #cccccc;
-  padding-bottom: 1em;
-}
-body {
-  color: #444444;
-}
-footer {
-  background-color: #2b4776;
-  border-bottom: 10px solid #e87400;
-  color: white;
-  min-height: 100px;
-  text-align: center;
-  padding-top: 2em;
-}
-h1 {
-  color: #e87400;
-  font-family: 'Ubuntu', sans-serif;
-}
-h2 {
-  color: #2b4776;
-  font-family: 'Ubuntu', sans-serif;
-}
-h3 {
-  margin-top: 0;
-}
-header {
-  margin: 1em 0;
-  min-height: 60px;
-}
-header i {
-  font-size: 2em;
-  color: #2b4776;
-}
-header i:hover {
-  color: #e87400;
-}
-header .social-bar {
-  margin-top: 1.5em;
-  text-align: right;
-}
-.navbar-econtinua {
-  background-color: #2b4776;
-  border-radius: 0;
-  border-bottom: 4px solid #cccccc;
-}
-.navbar-econtinua a {
-  color: white;
-  font-family: 'Oswald', sans-serif;
-}
-.navbar-econtinua .icon-bar {
-  background-color: white;
-}
-.nav li a:hover,
-.nav li a.active {
-  background-color: #2b4d80;
-}
-
-/**
-* File: variables.less
-* Author: Alex Arriaga (@alex_arriaga_m) - http://www.alex-arriaga.com
-* Date: 21/Aug/2014
-*/
-/**
-* File: variables.less
-* Author: Alex Arriaga (@alex_arriaga_m) - http://www.alex-arriaga.com
-* Date: 21/Aug/2014
-*/
-/* Extra small devices (phones, less than 768px) */
-@media (max-width: 768px) {
-  h1 {
-    font-size: 25px;
-  }
-  h2 {
-    font-size: 22px;
-  }
-  h3 {
-    font-size: 18px;
-  }
-  footer {
-    padding: 1em;
-  }
-}
-/* Small devices (tablets, 768px and up) */
-/* Medium devices (desktops, 992px and up) */
-/* Large devices (large desktops, 1200px and up) */
-
+a{color:#2b4776}
+article .read-more{background:#e87400;border-radius:4px;border:#e87400;color:#fff;padding:.5em}
+article.news{margin-top:1em;margin-bottom:1em;border-bottom:1px solid #ccc;padding-bottom:1em}
+body{color:#444}
+footer{background-color:#2b4776;border-bottom:10px solid #e87400;color:#fff;min-height:100px;text-align:center;padding-top:2em}
+h1{color:#e87400;font-family:Ubuntu,sans-serif}
+h2{color:#2b4776;font-family:Ubuntu,sans-serif}
+h3{margin-top:0}
+header{margin:1em 0;min-height:60px}
+header i{font-size:2em;color:#2b4776}
+header i:hover{color:#e87400}
+header .social-bar{margin-top:1.5em;text-align:right}
+.navbar-econtinua{background-color:#2b4776;border-radius:0;border-bottom:4px solid #ccc}
+.navbar-econtinua a{color:#fff;font-family:Oswald,sans-serif}
+.navbar-econtinua .icon-bar{background-color:#fff}
+.nav a.active,.nav a:hover{background-color:#2b4d80}
+@media (max-width:768px){h1{font-size:25px}
+h2{font-size:22px}
+h3{font-size:18px}
+footer{padding:1em}}
 /*!
  *  Font Awesome 4.1.0 by @davegandy - http://fontawesome.io - @fontawesome
  *  License - http://fontawesome.io/license (Font: SIL OFL 1.1, CSS: MIT License)
