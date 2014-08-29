@@ -10,6 +10,7 @@ var rename 	= require('gulp-rename');
 var watch 	= require('gulp-watch');
 var uglify 	= require('gulp-uglify');
 var less 	= require('gulp-less');
+var stylus = require('gulp-stylus');
 var minifyCSS = require('gulp-minify-css');
 var imagemin = require('gulp-imagemin');
 var pngcrush = require('imagemin-pngcrush');
@@ -25,6 +26,7 @@ var paths = {
 	images 	: [baseDirDev +'img/*.jpg', baseDirDev +'img/*.png'],
 	fonts	: 'fonts/*',
 	less 	: 'less/*.less',
+    stylus 	: 'stylus/*.styl',
 	css 	: [baseDirCSS + 'bootstrap.css', baseDirCSS + 'econtinua.css', baseDirCSS + 'econtinua-responsive.css', baseDirCSS + 'font-awesome.css']
 	// stylus 	: 'stylus/*.styl'
 };
@@ -36,13 +38,27 @@ var minifyCSSOptions = {
 	keepBreaks: false,
 	debug: true
 };
-
+/*
 // 1. Transform LESS file to CSS  (place CSS files into dev/css folder)
 	gulp.task('less', function() {
 		return gulp.src(paths.dev + paths.less).pipe(watch(function(files){
 			return files.pipe(less()).pipe(minifyCSS(minifyCSSOptions)).pipe(gulp.dest(paths.dev + 'css'));
 		}));
 	});
+*/
+
+// 1. Transform Stylus files to CSS  (place CSS files into dev/css folder)
+    gulp.task('stylus', function() {
+        /*
+        return gulp.src(paths.dev + paths.stylus).pipe(watch(function(files){
+            return files.pipe(stylus()).pipe(minifyCSS(minifyCSSOptions)).pipe(gulp.dest(paths.dev + 'css'));
+        }));
+        */
+        return gulp.src(paths.dev + paths.stylus)
+            .pipe(stylus())
+            .pipe(minifyCSS(minifyCSSOptions))
+            .pipe(gulp.dest(paths.dev + 'css'));
+    });
 
 // 2. Compress CSS
 	gulp.task('compress-css', function() {
@@ -87,14 +103,14 @@ var minifyCSSOptions = {
 gulp.task('watch', function() {
     //gulp.watch(paths.scripts, ['create-documentation']);
     //gulp.watch(paths.scripts, ['compress-js']);
-    gulp.watch(paths.dev + paths.less, ['less','compress-css']);
+    gulp.watch(paths.dev + paths.stylus, ['stylus','compress-css']);
 });
 
 
 // Default gulp task to run
-gulp.task('default',['less', 'compress-css', 'compress-js', 'copy-static-resources', 'watch']);
+gulp.task('default',['stylus', 'compress-css', 'compress-js', 'copy-static-resources', 'watch']);
 
-gulp.start('default'); // Use with watch
+gulp.start('watch'); // Use with watch
 
 
 
