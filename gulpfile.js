@@ -40,28 +40,27 @@ var minifyCSSOptions = {
 };
 /*
 // 1. Transform LESS file to CSS  (place CSS files into dev/css folder)
-	gulp.task('less', function() {
-		return gulp.src(paths.dev + paths.less).pipe(watch(function(files){
-			return files.pipe(less()).pipe(minifyCSS(minifyCSSOptions)).pipe(gulp.dest(paths.dev + 'css'));
-		}));
-	});
+    gulp.task('less', function() {
+        console.log("Running LESS task...");
+        return gulp.src(paths.dev + paths.less)
+        .pipe(less())
+        .pipe(minifyCSS(minifyCSSOptions))
+        .pipe(gulp.dest(paths.dev + 'css'));
+    });
 */
 
 // 1. Transform Stylus files to CSS  (place CSS files into dev/css folder)
     gulp.task('stylus', function() {
-        /*
-        return gulp.src(paths.dev + paths.stylus).pipe(watch(function(files){
-            return files.pipe(stylus()).pipe(minifyCSS(minifyCSSOptions)).pipe(gulp.dest(paths.dev + 'css'));
-        }));
-        */
+        console.log("Running Stylus task...");
         return gulp.src(paths.dev + paths.stylus)
             .pipe(stylus())
             .pipe(minifyCSS(minifyCSSOptions))
             .pipe(gulp.dest(paths.dev + 'css'));
     });
 
-// 2. Compress CSS
-	gulp.task('compress-css', function() {
+// 2. Compress CSS (it will run after 'stylus' task finishes
+	gulp.task('compress-css',['stylus'], function() {
+        console.log("Running compressing CSS task...");
 		return gulp.src(paths.css)
 			.pipe(concat('all-styles.css'))
 			.pipe(gulp.dest(paths.prod + 'css'))
@@ -72,6 +71,7 @@ var minifyCSSOptions = {
 
 // 3. Compress JavaScript files and place them into production folder
 	gulp.task('compress-js', function() {
+        console.log("Running compressing JavaScript task...");
 		return gulp.src(paths.scripts)
 			.pipe(concat('all-scripts.js'))
 			.pipe(gulp.dest(paths.prod + 'js'))
@@ -83,6 +83,7 @@ var minifyCSSOptions = {
 // 4. Copy images
 	gulp.task('copy-static-resources', function() {
 		// console.log("Copy images from:" + (paths.dev+paths.images));
+        console.log("Copying static resources task...");
 		gulp.src(paths.images)
 			.pipe(imagemin({
 				progressive: true,
@@ -99,18 +100,13 @@ var minifyCSSOptions = {
 
 
 // Watch files for fhanges
-
 gulp.task('watch', function() {
     //gulp.watch(paths.scripts, ['create-documentation']);
     //gulp.watch(paths.scripts, ['compress-js']);
+    console.log("Registering path to watch:" + paths.dev + paths.stylus);
     gulp.watch(paths.dev + paths.stylus, ['stylus','compress-css']);
 });
 
 
 // Default gulp task to run
 gulp.task('default',['stylus', 'compress-css', 'compress-js', 'copy-static-resources', 'watch']);
-
-gulp.start('watch'); // Use with watch
-
-
-
